@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-user-list',
@@ -19,7 +20,8 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -50,9 +52,11 @@ export class UserListComponent implements OnInit {
       this.userService.deleteUser(id).subscribe({
         next: () => {
           this.users = this.users.filter(user => user._id !== id);
+          this.notificationService.show('User deleted successfully');
         },
         error: (error) => {
           this.error = 'Error deleting user';
+          this.notificationService.show('Error deleting user', 'error');
           console.error('Error:', error);
         }
       });

@@ -1,1 +1,58 @@
-<p>user-details works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h2 class="mb-0">User Details</h2>
+          <a routerLink="/users" class="btn btn-secondary btn-sm">Back to List</a>
+        </div>
+
+        <div *ngIf="loading" class="card-body text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger m-3">
+          {{error}}
+        </div>
+
+        <div class="card-body" *ngIf="user && !loading">
+          <div class="mb-3">
+            <label class="fw-bold">Name:</label>
+            <p>{{user.name}}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="fw-bold">Email:</label>
+            <p>{{user.email}}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="fw-bold">Phone:</label>
+            <p>{{user.phone}}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="fw-bold">Created At:</label>
+            <p>{{user.createdAt | date:'medium'}}</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="fw-bold">Last Updated:</label>
+            <p>{{user.updatedAt | date:'medium'}}</p>
+          </div>
+
+          <div class="d-grid gap-2">
+            <a [routerLink]="['/users/edit', user._id]" class="btn btn-warning">
+              Edit User
+            </a>
+            <button (click)="deleteUser()" class="btn btn-danger">
+              Delete User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

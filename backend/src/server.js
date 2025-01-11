@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 const userRoutes = require('./routes/user.routes');
 const { errorHandler } = require('./middleware/error.middleware');
+const authRoutes = require('./routes/auth.routes');
+const { protect } = require('./middleware/auth.middleware');
 
 // Load environment variables
 dotenv.config();
@@ -20,7 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', protect, userRoutes);
 
 // Basic route
 app.get('/', (req, res) => {

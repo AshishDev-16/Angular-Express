@@ -1,0 +1,57 @@
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <nav class="sidebar bg-dark" [class.collapsed]="isSidebarCollapsed">
+    <div class="sidebar-header">
+      <i class="bi bi-shield-lock text-light fs-4"></i>
+      <span *ngIf="!isSidebarCollapsed">Admin Panel</span>
+    </div>
+    
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">
+          <i class="bi bi-speedometer2"></i>
+          <span *ngIf="!isSidebarCollapsed">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/users" routerLinkActive="active">
+          <i class="bi bi-people"></i>
+          <span *ngIf="!isSidebarCollapsed">Users</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+      <div class="container-fluid">
+        <button class="btn btn-link" (click)="toggleSidebar()">
+          <i class="bi" [ngClass]="isSidebarCollapsed ? 'bi-list' : 'bi-x-lg'"></i>
+        </button>
+        
+        <div class="ms-auto d-flex align-items-center">
+          <div class="dropdown">
+            <button class="btn btn-link dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle me-2"></i>
+              {{admin?.username}}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">
+                  <i class="bi bi-box-arrow-right me-2"></i>Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="container-fluid py-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> 

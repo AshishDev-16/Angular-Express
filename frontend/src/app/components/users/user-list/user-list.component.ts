@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
   }
 
   editUser(id: string): void {
-    this.router.navigate(['/users/edit', id]);
+    this.router.navigate(['/admin/users/edit', id]);
   }
 
   deleteUser(id: string): void {
@@ -64,6 +64,6 @@ export class UserListComponent implements OnInit {
   }
 
   viewUser(id: string): void {
-    this.router.navigate(['/users', id]);
+    this.router.navigate(['/admin/users', id]);
   }
 }

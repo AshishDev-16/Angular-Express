@@ -71,7 +71,7 @@ export class UserFormComponent implements OnInit {
           this.notificationService.show(
             `User ${this.isEditMode ? 'updated' : 'created'} successfully`
           );
-          this.router.navigate(['/users']);
+          this.router.navigate(['/admin/users']);
         },
         error: (error) => {
           this.error = 'Error saving user';

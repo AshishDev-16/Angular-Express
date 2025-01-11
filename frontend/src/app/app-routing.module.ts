@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/auth/login/login.component';
 import { AdminLayoutComponent } from './components/admin/layout/admin-layout.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { SettingsComponent } from './components/admin/settings/settings.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +20,8 @@ export const routes: Routes = [
       { path: 'users', component: UserListComponent },
       { path: 'users/new', component: UserFormComponent },
       { path: 'users/edit/:id', component: UserFormComponent },
-      { path: 'users/:id', component: UserDetailsComponent }
+      { path: 'users/:id', component: UserDetailsComponent },
+      { path: 'settings', component: SettingsComponent }
     ]
   },
   { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }

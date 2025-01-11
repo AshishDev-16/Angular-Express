@@ -19,6 +19,8 @@ export class UserFormComponent implements OnInit {
   userId: string | null = null;
   loading = false;
   error = '';
+  departments = ['IT', 'HR', 'Finance', 'Marketing', 'Sales', 'Operations', 'Management'];
+  countries = ['United States', 'Canada', 'United Kingdom', 'Australia', 'India', 'Germany', 'France'];
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +32,25 @@ export class UserFormComponent implements OnInit {
     this.userForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]]
+      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      dateOfBirth: ['', Validators.required],
+      gender: ['prefer-not-to-say'],
+      department: [''],
+      position: [''],
+      status: ['active'],
+      address: this.fb.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        zipCode: ['', Validators.pattern(/^\d{6}$/)],
+        country: ['United States']
+      }),
+      socialLinks: this.fb.group({
+        linkedin: ['', Validators.pattern(/^https?:\/\/.*$/)],
+        twitter: ['', Validators.pattern(/^https?:\/\/.*$/)],
+        facebook: ['', Validators.pattern(/^https?:\/\/.*$/)]
+      }),
+      profileImage: ['']
     });
   }
 

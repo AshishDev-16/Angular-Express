@@ -1,1 +1,1000 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Dark Theme Variables */
+:root {
+  /* Darker background colors */
+  --bg-dark: #000000;  /* Main background - pure black */
+  --bg-dark-light: #121212;  /* Card background - very dark */
+  --bg-dark-lighter: #1E1E1E;  /* Hover states - slightly lighter */
+  
+  /* Text colors with better contrast */
+  --text-dark: #FFFFFF;
+  --text-dark-secondary: #B0B0B0;
+  
+  /* Border and accent colors */
+  --border-dark: #2A2A2A;
+  --primary-dark: #7C3AED;  /* Brighter blue */
+  --success-dark: #0D9488;  /* Darker green */
+  --warning-dark: #7E22CE;  /* Darker orange */
+  --danger-dark: #E11D48;   /* Darker red */
+  
+  /* Glassmorphism effects */
+  --glass-bg: rgba(18, 18, 18, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  --glass-blur: blur(12px);
+  
+  /* Gradient accents */
+  --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+  --hover-gradient: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+}
+
+/* Base styles for dark theme */
+.dark-theme,
+.dark-theme body,
+.dark-theme .container,
+.dark-theme .container-fluid {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Target the main content area */
+.dark-theme .main-content {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Target any remaining white backgrounds */
+.dark-theme .bg-white,
+.dark-theme .bg-light,
+.dark-theme [class*="bg-"],
+.dark-theme main,
+.dark-theme section,
+.dark-theme aside,
+.dark-theme .wrapper,
+.dark-theme .content,
+.dark-theme .page-content {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Ensure router outlet container is dark */
+.dark-theme router-outlet + * {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Target any elements with white background utility classes */
+.dark-theme .bg-body,
+.dark-theme .bg-body-secondary,
+.dark-theme .bg-body-tertiary {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Override any Bootstrap background utilities */
+.dark-theme [class*="bg-"] {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Add !important to html and body specifically */
+.dark-theme html,
+.dark-theme body {
+  background-color: var(--bg-dark) !important;
+}
+
+/* Base dark theme */
+.dark-theme {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Sidebar specific */
+.dark-theme .sidebar {
+  background-color: var(--bg-dark) !important;
+  border-right: 1px solid var(--border-dark) !important;
+}
+
+.dark-theme .sidebar .nav-link {
+  color: var(--text-dark-secondary) !important;
+}
+
+.dark-theme .sidebar .nav-link:hover,
+.dark-theme .sidebar .nav-link.active {
+  background-color: var(--bg-dark-lighter) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Cards with better contrast */
+.dark-theme .card {
+  background-color: var(--bg-dark-light) !important;
+  border: 1px solid var(--border-dark) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-theme .card-header {
+  background-color: var(--bg-dark) !important;
+  border-bottom: 1px solid var(--border-dark) !important;
+}
+
+/* Form controls with better visibility */
+.dark-theme .form-control,
+.dark-theme .form-select {
+  background-color: var(--bg-dark) !important;
+  border: 1px solid var(--border-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+  background-color: var(--bg-dark) !important;
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25) !important;
+}
+
+.dark-theme .form-control::placeholder {
+  color: var(--text-dark-secondary) !important;
+  opacity: 0.7;
+}
+
+/* Tables with better contrast */
+.dark-theme .table {
+  color: var(--text-dark) !important;
+  border-color: var(--border-dark) !important;
+  background-color: var(--bg-dark-light) !important;
+}
+
+.dark-theme .table thead th {
+  background-color: var(--bg-dark) !important;
+  border-bottom: 2px solid var(--border-dark) !important;
+}
+
+.dark-theme .table tbody td {
+  background-color: var(--bg-dark-light) !important;
+}
+
+.dark-theme .table-hover tbody tr:hover td {
+  background-color: var(--bg-dark-lighter) !important;
+}
+
+/* Buttons with better visibility */
+.dark-theme .btn-primary {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.dark-theme .btn-outline-secondary {
+  color: var(--text-dark) !important;
+  border-color: var(--border-dark) !important;
+}
+
+.dark-theme .btn-outline-secondary:hover {
+  background-color: var(--bg-dark-lighter) !important;
+  border-color: var(--text-dark-secondary) !important;
+}
+
+/* Dropdown improvements */
+.dark-theme .dropdown-menu {
+  background-color: var(--bg-dark-light) !important;
+  border: 1px solid var(--border-dark) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-theme .dropdown-item {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .dropdown-item:hover {
+  background-color: var(--bg-dark-lighter) !important;
+}
+
+/* Navigation bar */
+.dark-theme .navbar {
+  background-color: var(--bg-dark) !important;
+  border-bottom: 1px solid var(--border-dark) !important;
+}
+
+/* Add smooth transitions */
+.dark-theme,
+.dark-theme * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Status badges with better contrast */
+.dark-theme .badge.bg-success {
+  background-color: var(--success-dark) !important;
+}
+
+.dark-theme .badge.bg-warning {
+  background-color: var(--warning-dark) !important;
+}
+
+.dark-theme .badge.bg-danger {
+  background-color: var(--danger-dark) !important;
+}
+
+/* Improved scrollbar */
+.dark-theme ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background-color: var(--bg-dark-lighter);
+  border-radius: 6px;
+  border: 2px solid var(--bg-dark);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--border-dark);
+}
+
+/* Input group addons */
+.dark-theme .input-group-text {
+  background-color: var(--bg-dark) !important;
+  border-color: var(--border-dark) !important;
+  color: var(--text-dark-secondary) !important;
+}
+
+/* Alert styling */
+.dark-theme .alert {
+  background-color: var(--bg-dark-light) !important;
+  border: 1px solid var(--border-dark) !important;
+}
+
+/* Modal improvements */
+.dark-theme .modal-content {
+  background-color: var(--bg-dark-light) !important;
+  border: 1px solid var(--border-dark) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-theme .modal-header {
+  border-bottom: 1px solid var(--border-dark) !important;
+  background-color: var(--bg-dark) !important;
+}
+
+.dark-theme .modal-footer {
+  border-top: 1px solid var(--border-dark) !important;
+  background-color: var(--bg-dark) !important;
+}
+
+/* Additional dark theme improvements */
+.dark-theme .bg-white,
+.dark-theme .bg-light {
+  background-color: var(--bg-dark) !important;
+}
+
+.dark-theme .border-light {
+  border-color: var(--border-dark) !important;
+}
+
+.dark-theme .text-dark {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .text-muted {
+  color: var(--text-dark-secondary) !important;
+}
+
+/* Form check (checkboxes & radios) */
+.dark-theme .form-check-input {
+  background-color: var(--bg-dark) !important;
+  border-color: var(--border-dark) !important;
+}
+
+.dark-theme .form-check-input:checked {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+/* Form switch */
+.dark-theme .form-switch .form-check-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255, 255, 255, 0.25)'/%3e%3c/svg%3e") !important;
+}
+
+.dark-theme .form-switch .form-check-input:checked {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e") !important;
+}
+
+/* Add these styles to improve heading visibility in dark mode */
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6,
+.dark-theme .h1,
+.dark-theme .h2,
+.dark-theme .h3,
+.dark-theme .h4,
+.dark-theme .h5,
+.dark-theme .h6 {
+  color: var(--text-dark) !important;
+  font-weight: 500;
+}
+
+/* Card headers and section titles */
+.dark-theme .card-header h1,
+.dark-theme .card-header h2,
+.dark-theme .card-header h3,
+.dark-theme .card-header h4,
+.dark-theme .card-header h5,
+.dark-theme .card-header h6,
+.dark-theme .card-header .h1,
+.dark-theme .card-header .h2,
+.dark-theme .card-header .h3,
+.dark-theme .card-header .h4,
+.dark-theme .card-header .h5,
+.dark-theme .card-header .h6 {
+  color: var(--text-dark) !important;
+  margin-bottom: 0;
+}
+
+/* Section headings with icons */
+.dark-theme h1 i,
+.dark-theme h2 i,
+.dark-theme h3 i,
+.dark-theme h4 i,
+.dark-theme h5 i,
+.dark-theme h6 i {
+  color: var(--primary-dark) !important;
+  margin-right: 0.5rem;
+}
+
+/* Add subtle text shadow for better contrast */
+.dark-theme .card-header h1,
+.dark-theme .card-header h2,
+.dark-theme .card-header h3,
+.dark-theme .card-header h4,
+.dark-theme .card-header h5,
+.dark-theme .card-header h6 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styles for dark theme */
+.dark-theme .table thead th,
+.dark-theme .table-light thead th,
+.dark-theme .table > :not(caption) > * > th {
+  background-color: var(--bg-dark-lighter) !important;
+  color: var(--text-dark) !important;
+  border-bottom: 2px solid var(--border-dark) !important;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+/* Table header text */
+.dark-theme .table thead th,
+.dark-theme .table-light th {
+  color: var(--text-dark) !important;
+  background-color: var(--bg-dark-lighter) !important;
+}
+
+/* Override Bootstrap's table-light class */
+.dark-theme .table-light,
+.dark-theme .table-light > th,
+.dark-theme .table-light > td {
+  background-color: var(--bg-dark-lighter) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Add subtle border between header cells */
+.dark-theme .table thead th {
+  border-right: 1px solid var(--border-dark) !important;
+}
+
+.dark-theme .table thead th:last-child {
+  border-right: none !important;
+}
+
+/* Glassmorphism Card Styles */
+.dark-theme .card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: 16px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.dark-theme .card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Glassmorphism Sidebar */
+.dark-theme .sidebar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-right: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+/* Modern Navigation Links */
+.dark-theme .sidebar .nav-link {
+  margin: 8px 16px !important;
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+}
+
+.dark-theme .sidebar .nav-link:hover,
+.dark-theme .sidebar .nav-link.active {
+  background: var(--accent-gradient) !important;
+  border-color: var(--glass-border) !important;
+  transform: translateX(5px) !important;
+}
+
+/* Modern Table Styles */
+.dark-theme .table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+}
+
+.dark-theme .table thead th {
+  background: var(--glass-bg) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  padding: 16px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.dark-theme .table tbody tr {
+  transition: all 0.3s ease !important;
+}
+
+.dark-theme .table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  transform: scale(1.01) !important;
+}
+
+/* Modern Buttons */
+.dark-theme .btn {
+  border-radius: 12px !important;
+  padding: 8px 20px !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.dark-theme .btn-primary {
+  background: var(--accent-gradient) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important;
+  color: white !important;
+}
+
+.dark-theme .btn-primary:hover {
+  background: var(--hover-gradient) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4) !important;
+  color: white !important;
+}
+
+/* Form Controls */
+.dark-theme .form-control,
+.dark-theme .form-select {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  transition: all 0.3s ease !important;
+}
+
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+  background: rgba(139, 92, 246, 0.1) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* Status Badges */
+.dark-theme .badge {
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+}
+
+/* Animated Icons */
+.dark-theme .bi {
+  transition: transform 0.3s ease !important;
+}
+
+.dark-theme .btn:hover .bi,
+.dark-theme .nav-link:hover .bi {
+  transform: scale(1.2) !important;
+}
+
+/* Card Headers */
+.dark-theme .card-header {
+  background: var(--glass-bg) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  padding: 20px !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+/* Scrollbar */
+.dark-theme ::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: var(--glass-bg) !important;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: var(--accent-gradient) !important;
+  border-radius: 4px !important;
+}
+
+/* Loading Spinner */
+.dark-theme .spinner-border {
+  background: var(--accent-gradient) !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite, glow 2s ease-in-out infinite !important;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+}
+
+/* Light Theme Variables */
+:root {
+  /* Light theme colors */
+  --bg-light: #f8f9fa;
+  --bg-light-glass: rgba(255, 255, 255, 0.7);
+  --bg-light-solid: #ffffff;
+  --text-light: #2c3e50;
+  --text-light-secondary: #6c757d;
+  --border-light: rgba(0, 0, 0, 0.1);
+  
+  /* Light theme accents - Updated with new colors */
+  --primary: #8B5CF6;      /* Purple */
+  --success: #14B8A6;      /* Teal */
+  --warning: #9333EA;      /* Violet */
+  --danger: #F43F5E;       /* Rose */
+  
+  /* Light theme glassmorphism */
+  --glass-light-bg: rgba(255, 255, 255, 0.7);
+  --glass-light-border: rgba(255, 255, 255, 0.2);
+  --glass-light-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.15);
+  
+  /* Light theme gradients - Updated */
+  --accent-gradient-light: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+  --hover-gradient-light: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+}
+
+/* Light Theme Base Styles */
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Glassmorphism Card Styles - Light */
+.card {
+  background: var(--glass-light-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+  box-shadow: var(--glass-light-shadow) !important;
+  border-radius: 16px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  color: var(--text-light) !important;
+}
+
+.card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2) !important;
+}
+
+/* Card content text color */
+.card-title,
+.card-text,
+.card-header,
+.card-body,
+.card-footer {
+  color: var(--text-light) !important;
+}
+
+/* Dashboard metrics and stats */
+.card .h1,
+.card .h2,
+.card .h3,
+.card .h4,
+.card .h5,
+.card .h6,
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+  color: var(--text-light) !important;
+}
+
+/* Secondary text in light mode */
+.text-muted {
+  color: var(--text-light-secondary) !important;
+}
+
+/* Border colors in light mode */
+.border,
+.border-top,
+.border-bottom,
+.border-start,
+.border-end {
+  border-color: rgba(0, 0, 0, 0.125) !important;
+}
+
+/* Table borders in light mode */
+.table {
+  border-color: rgba(0, 0, 0, 0.125) !important;
+}
+
+.table td,
+.table th {
+  border-color: rgba(0, 0, 0, 0.125) !important;
+}
+
+/* Only apply white text in dark mode */
+.dark-theme .card,
+.dark-theme .card-title,
+.dark-theme .card-text,
+.dark-theme .card-header,
+.dark-theme .card-body,
+.dark-theme .card-footer,
+.dark-theme .card h1,
+.dark-theme .card h2,
+.dark-theme .card h3,
+.dark-theme .card h4,
+.dark-theme .card h5,
+.dark-theme .card h6,
+.dark-theme .card .h1,
+.dark-theme .card .h2,
+.dark-theme .card .h3,
+.dark-theme .card .h4,
+.dark-theme .card .h5,
+.dark-theme .card .h6 {
+  color: var(--text-dark) !important;
+}
+
+/* Ensure proper text contrast in both modes */
+.text-primary { color: var(--primary-light) !important; }
+.text-success { color: var(--success-light) !important; }
+.text-warning { color: var(--warning-light) !important; }
+.text-danger { color: var(--danger-light) !important; }
+
+.dark-theme .text-primary { color: var(--primary-dark) !important; }
+.dark-theme .text-success { color: var(--success-dark) !important; }
+.dark-theme .text-warning { color: var(--warning-dark) !important; }
+.dark-theme .text-danger { color: var(--danger-dark) !important; }
+
+/* Sidebar - Light */
+.sidebar {
+  background: var(--glass-light-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border-right: 1px solid var(--glass-light-border) !important;
+  box-shadow: var(--glass-light-shadow) !important;
+}
+
+/* Navigation Links - Light */
+.sidebar .nav-link {
+  color: var(--text-light) !important;
+  margin: 8px 16px !important;
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: var(--accent-gradient-light) !important;
+  color: white !important;
+  transform: translateX(5px) !important;
+}
+
+/* Table Styles - Light */
+.table {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: var(--glass-light-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+}
+
+.table thead th {
+  background: rgba(33, 150, 243, 0.1) !important;
+  color: var(--text-light) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 16px !important;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease !important;
+}
+
+.table tbody tr:hover {
+  background: rgba(33, 150, 243, 0.05) !important;
+  transform: scale(1.01) !important;
+}
+
+/* Buttons - Light */
+.btn {
+  border-radius: 12px !important;
+  padding: 8px 20px !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn-primary {
+  background: var(--accent-gradient-light) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3) !important;
+}
+
+.btn-primary:hover {
+  background: var(--hover-gradient-light) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4) !important;
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+  background: var(--glass-light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  color: var(--text-light) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Input Group - Light Mode */
+.input-group-text {
+  background: var(--glass-light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: var(--text-light) !important;
+}
+
+/* Card Borders - Light Mode */
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Table Borders - Light Mode */
+.table {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.table th,
+.table td {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Dropdown Borders - Light Mode */
+.dropdown-menu {
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Button Borders - Light Mode */
+.btn-outline-secondary {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: var(--text-light) !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Form Check (Checkboxes & Radios) - Light Mode */
+.form-check-input {
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Modal Borders - Light Mode */
+.modal-content {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Status Badges - Light */
+.badge {
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+}
+
+/* Card Headers - Light */
+.card-header {
+  background: var(--glass-light-bg) !important;
+  border-bottom: 1px solid var(--glass-light-border) !important;
+  padding: 20px !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+/* Scrollbar - Light */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gradient-light) !important;
+  border-radius: 4px !important;
+}
+
+/* Loading Spinner - Light */
+.spinner-border {
+  background: var(--accent-gradient-light) !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite, glow-light 2s ease-in-out infinite !important;
+}
+
+@keyframes glow-light {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+}
+
+/* Animated Icons - Light */
+.bi {
+  transition: transform 0.3s ease !important;
+}
+
+.btn:hover .bi,
+.nav-link:hover .bi {
+  transform: scale(1.2) !important;
+}
+
+/* Sidebar Header - Light Mode */
+.sidebar-header {
+  color: var(--text-light) !important;
+}
+
+.sidebar-header i {
+  color: var(--primary-light) !important;
+}
+
+/* Dark Mode Override */
+.dark-theme .sidebar-header {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .sidebar-header i {
+  color: var(--text-dark) !important;
+}
+
+/* Update button styles */
+.btn-primary {
+  background: var(--accent-gradient) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background: var(--hover-gradient) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4) !important;
+  color: white !important;
+}
+
+/* Update form focus states */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25) !important;
+}
+
+/* Update links */
+a {
+  color: var(--primary) !important;
+}
+
+a:hover {
+  color: var(--primary-dark) !important;
+}
+
+/* Update badges */
+.badge.bg-primary {
+  background: var(--primary) !important;
+}
+
+.badge.bg-success {
+  background: var(--success) !important;
+}
+
+.badge.bg-warning {
+  background: var(--warning) !important;
+}
+
+.badge.bg-danger {
+  background: var(--danger) !important;
+}
+
+/* Update loading spinner */
+.spinner-border {
+  background: var(--accent-gradient) !important;
+}
+
+/* Update scrollbar */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gradient) !important;
+}
+
+/* Update navigation active states */
+.nav-link.active {
+  background: var(--accent-gradient) !important;
+}
+
+/* Update table hover states */
+.table tbody tr:hover {
+  background: rgba(139, 92, 246, 0.05) !important;
+}
+
+/* Update outline buttons */
+.btn-outline-primary {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--accent-gradient) !important;
+  color: white !important;
+}
+
+/* Also update other button variants */
+.btn.bg-primary,
+.btn.bg-success,
+.btn.bg-warning,
+.btn.bg-danger {
+  color: white !important;
+}
+
+/* Update badge text colors */
+.badge.bg-primary,
+.badge.bg-success,
+.badge.bg-warning,
+.badge.bg-danger {
+  color: white !important;
+}

@@ -21,39 +21,67 @@
           </div>
 
           <div class="table-responsive" *ngIf="users.length > 0">
-            <table class="table table-hover">
+            <table class="table table-hover align-middle">
               <thead class="table-light">
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
+                  <th>User</th>
+                  <th>Contact</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                  <th>Joined Date</th>
                   <th class="text-end">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let user of users">
                   <td>
-                    <i class="bi bi-person-circle me-2"></i>
-                    {{user.name}}
+                    <div class="d-flex align-items-center">
+                      <div class="user-avatar me-3">
+                        <i class="bi bi-person-circle fs-3"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">{{user.name}}</h6>
+                        <small class="text-muted">{{user.position || 'No position'}}</small>
+                      </div>
+                    </div>
                   </td>
                   <td>
-                    <i class="bi bi-envelope me-2"></i>
-                    {{user.email}}
+                    <div>
+                      <div><i class="bi bi-envelope me-2"></i>{{user.email}}</div>
+                      <div><i class="bi bi-telephone me-2"></i>{{user.phone}}</div>
+                    </div>
                   </td>
                   <td>
-                    <i class="bi bi-telephone me-2"></i>
-                    {{user.phone}}
+                    <span class="badge bg-info">{{user.department || 'Not Assigned'}}</span>
+                  </td>
+                  <td>
+                    <span class="badge"
+                          [ngClass]="{
+                            'bg-success': user.status === 'active',
+                            'bg-danger': user.status === 'inactive',
+                            'bg-warning': user.status === 'pending'
+                          }">
+                      {{user.status || 'Active'}}
+                    </span>
+                  </td>
+                  <td>
+                    <div>
+                      <div>{{user.createdAt | date:'mediumDate'}}</div>
+                      <small class="text-muted">{{user.createdAt | date:'shortTime'}}</small>
+                    </div>
                   </td>
                   <td class="text-end">
-                    <button class="btn btn-sm btn-outline-info me-2" (click)="viewUser(user._id!)">
-                      <i class="bi bi-eye"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-warning me-2" (click)="editUser(user._id!)">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger" (click)="deleteUser(user._id!)">
-                      <i class="bi bi-trash"></i>
-                    </button>
+                    <div class="btn-group">
+                      <button class="btn btn-sm btn-outline-info" (click)="viewUser(user._id!)">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-warning" (click)="editUser(user._id!)">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" (click)="deleteUser(user._id!)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>

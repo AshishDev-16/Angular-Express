@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { Admin } from '../../../models/admin';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -15,7 +16,11 @@ export class AdminLayoutComponent {
   admin: Admin | null = null;
   isSidebarCollapsed = false;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {
     this.admin = this.authService.getCurrentAdmin();
   }
 
@@ -25,5 +30,7 @@ export class AdminLayoutComponent {
 
   logout(): void {
     this.authService.logout();
+    this.notificationService.show('Logged out successfully');
+    this.router.navigate(['/login']);
   }
 } 

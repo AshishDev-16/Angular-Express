@@ -25,7 +25,48 @@ const adminSchema = new mongoose.Schema({
     type: String,
     enum: ['admin', 'super-admin'],
     default: 'admin'
-  }
+  },
+  settings: {
+    theme: {
+      type: String,
+      enum: ['light', 'dark'],
+      default: 'light'
+    },
+    language: {
+      type: String,
+      enum: ['en', 'es', 'fr', 'de'],
+      default: 'en'
+    },
+    notifications: {
+      newUser: {
+        type: Boolean,
+        default: true
+      },
+      userUpdate: {
+        type: Boolean,
+        default: false
+      },
+      security: {
+        type: Boolean,
+        default: true
+      }
+    },
+    twoFactorEnabled: {
+      type: Boolean,
+      default: false
+    },
+    layoutDensity: {
+      type: String,
+      enum: ['comfortable', 'compact', 'cozy'],
+      default: 'comfortable'
+    }
+  },
+  activeSessions: [{
+    deviceId: String,
+    deviceType: String,
+    location: String,
+    lastActive: Date
+  }]
 }, {
   timestamps: true
 });

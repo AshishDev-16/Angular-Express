@@ -6,6 +6,7 @@ const userRoutes = require('./routes/user.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 const authRoutes = require('./routes/auth.routes');
 const { protect } = require('./middleware/auth.middleware');
+const settingsRoutes = require('./routes/settings.routes');
 
 // Load environment variables
 dotenv.config();
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', protect, userRoutes);
+app.use('/api/settings', protect, settingsRoutes);
 
 // Basic route
 app.get('/', (req, res) => {

@@ -9,6 +9,7 @@ import { Admin, AdminAuthResponse } from '../models/admin';
 })
 export class AuthService {
   private apiUrl = `${environment.apiUrl}/api/auth`;
+  private settingsUrl = `${environment.apiUrl}/api/settings`;
   private adminSubject = new BehaviorSubject<Admin | null>(null);
   admin$ = this.adminSubject.asObservable();
 
@@ -47,5 +48,37 @@ export class AuthService {
 
   getCurrentAdmin(): Admin | null {
     return this.adminSubject.value;
+  }
+
+  updateProfile(data: { username: string }) {
+    return this.http.patch<any>(`${this.settingsUrl}/profile`, data).pipe(
+      tap(response => {
+        const currentAdmin = this.adminSubject.value;
+        if (currentAdmin) {
+          this.adminSubject.next({ ...currentAdmin, ...data });
+          localStorage.setItem('admin', JSON.stringify({ ...currentAdmin, ...data }));
+        }
+      })
+    );
+  }
+
+  updatePassword(data: { currentPassword: string; newPassword: string }) {
+    return this.http.patch<any>(`${this.settingsUrl}/password`, data);
+  }
+
+  updateSettings(settings: any) {
+    return this.http.patch<any>(`${this.settingsUrl}/general`, settings);
+  }
+
+  toggleTwoFactor() {
+    return this.http.patch<any>(`${this.settingsUrl}/two-factor`, {});
+  }
+
+  getActiveSessions() {
+    return this.http.get<any>(`${this.settingsUrl}/sessions`);
+  }
+
+  terminateSession(sessionId: string) {
+    return this.http.delete<any>(`${this.settingsUrl}/sessions/${sessionId}`);
   }
 } 
